@@ -29,6 +29,8 @@ try:
         soup = BeautifulSoup(response.content, 'html.parser')
         response.raise_for_status()
 
+except requests.exceptions.HTTPError as e:
+    print(" ERROR ".center(80, "-"),e)
 except requests.ConnectionError as e:
     print('Connection error occurred'.center(60, "-"))
     # sleep(1.5)
@@ -38,8 +40,6 @@ except requests.exceptions.Timeout:
     timeout = 30
     # sleep(1.5)
     # continue
-except requests.exceptions.HTTPError as e:
-    print(" ERROR ".center(80, "-"),e)
 except requests.exceptions.RequestException as e:
     # catastrophic error.
     print('General error'.center(40, "*"), e)
