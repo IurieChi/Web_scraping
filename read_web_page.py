@@ -30,7 +30,7 @@ try:
         response.raise_for_status()
 
 except requests.exceptions.HTTPError as e:
-    print(" ERROR ".center(80, "-"),e)
+    print("HTTP Error".center(80, "-"),e)
 except requests.ConnectionError as e:
     print('Connection error occurred'.center(60, "-"))
     # sleep(1.5)
@@ -51,7 +51,8 @@ id_input = soup.find('input', class_='form2')
 if id_input:
     id_input['value'] = id_value
 
-# print(soup)
+print(soup)
+# print(response.text)
 # # Find the CAPTCHA input element by class name and set its value
 # captcha_input = soup.find('input', name='captcha')
 # if captcha_input: 
