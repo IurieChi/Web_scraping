@@ -1,11 +1,26 @@
 # pip install tesseract
 
-import pytesseract
-from PIL import Image
+import cv2
+import easyocr
+import pandas as pd
 
-# img = Image.open('kaptcha.jpg')
 
 
-print(pytesseract.image_to_string(Image.open('kaptcha2.jpeg'),lang='eng'))
-print(pytesseract.image_to_string('kaptcha2.jpeg'))
+def read_captchea(object):
+    
+    image = cv2.imread(object)
 
+    reader = easyocr.Reader(['en'],gpu= False)
+
+    result = reader.readtext(image, detail=1, paragraph= False)
+    return result
+
+
+# print(result[0][1])
+
+# if result[0][2] >= 0.90:
+#     name = result[0][1]
+#     print(name)
+
+# else:
+#     print(result)

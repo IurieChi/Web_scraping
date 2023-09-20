@@ -1,6 +1,8 @@
 from time import sleep
-import requests 
+import requests ,cv2 
 from bs4 import BeautifulSoup
+# import read_captcha
+from PIL import Image
 
 # data form 
 # pagina: domenii
@@ -53,6 +55,21 @@ if id_input:
 
 print(soup)
 # print(response.text)
+# Find the CAPTCHA image path
+images = soup.find('img')
+image_link = images["src"]
+# print(image_link)
+img = Image.open(s.get(sorter_url, headers=headers, stream = True).content)
+img.show()
+
+# captcha_path = soup.find('img', src="/apps/kaptcha.jpg")
+# print(type(captcha_path))
+# path = src="/apps/kaptcha.jpg"
+# print(path)
+
+# captcha_value = read_captcha.read_captchea(path)
+# print(captcha_value)
+
 # # Find the CAPTCHA input element by class name and set its value
 # captcha_input = soup.find('input', name='captcha')
 # if captcha_input: 
