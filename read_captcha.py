@@ -2,13 +2,13 @@
 
 import cv2
 import easyocr
-import pandas as pd
 
 
 
-def read_captchea(object):
+
+def read_captchea(path):
     
-    image = cv2.imread(object)
+    image = cv2.imread(path)
 
     reader = easyocr.Reader(['en'],gpu= False)
 
