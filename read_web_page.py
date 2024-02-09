@@ -53,7 +53,7 @@ id_input = soup.find('input', class_='form2')
 if id_input:
     id_input['value'] = id_value
 
-print(soup)
+print(soup.text)
 # print(response.text)
 # Find the CAPTCHA image path
 images = soup.find('img')
